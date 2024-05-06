@@ -8,17 +8,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY', get_random_secret_key())
 
-DEBUG = os.getenv('DEBUG', False)
+DEBUG = os.getenv('DEBUG', '').lower() == 'true'
 
 ALLOWED_HOSTS = os.getenv(
     'ALLOWED_HOSTS',
-    [
-        '158.160.88.226',
-        '127.0.0.1',
-        'localhost',
-        'kittygram.serveminecraft.net'
-    ]
-)
+    'localhost,'
+    '127.0.0.1,'
+    '158.160.88.226,'
+    'kittygram.serveminecraft.net'
+).split(',')
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
