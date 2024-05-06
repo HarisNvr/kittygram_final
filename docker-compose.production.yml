@@ -15,7 +15,7 @@ services:
     image: harisnvr/kittygram_backend
     env_file: .env
     volumes:
-      - media:/media
+      - media:/app/media
       - static:/backend_static
   frontend:
     env_file: .env
@@ -30,4 +30,4 @@ services:
       - 9000:80
     volumes:
       - static:/static
-      - media:/media
+      - media:/app/media
